@@ -1,0 +1,169 @@
+/*
+Theme Name: Anjirai
+Theme URI: http://iniyan.in/themes/anjirai
+Author: iniyan
+Author URI: http://iniyan.in
+Description: Anjirai (Tamil) means a beautiful Wing. Anjirai is a child theme of Twenty Fourteen. With Anjirai theme you can customize every element's color. 
+Version: 0.0.1
+Template: twentyfourteen
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Tags: black, green, white, light, dark, two-columns, three-columns, left-sidebar, right-sidebar, fixed-layout, responsive-layout, custom-background, custom-header, custom-menu, editor-style, featured-images, flexible-header, full-width-template, microformats, post-formats, rtl-language-support, sticky-post, theme-options, translation-ready, accessibility-ready
+Contributors: vinothg, logeshmba
+
+
+This theme, like WordPress, is licensed under the GPL.
+Use it to make something cool, have fun, and share what you've learned with others.
+*/
+
+/* Import the CSS file-------------------------*/
+
+/* Loaded via functions.php instead */
+/*@import  '../twentyfourteen/style.css';*/
+
+/**  You don't need to write any code to change colors, just goto customizer and customize your own color **/
+
+.dharma-talk .site-content .entry-content h2 {
+    font-size: 20px;
+    margin-top: 12px;
+}
+
+.hentry, .post-navigation, .page-content, .page-header, .archive-header {
+    max-width: none;
+    margin: 0 auto 24px;
+}
+
+.dharma-talk .site-content {
+    margin-right: 0;
+}
+
+.site-content .entry-header, .site-content .entry-meta {
+	max-width: none;
+}
+
+.dharma-talk .site-content .entry-content {
+	padding-top: 0;
+}
+
+.dharma-talk .embed-youtube {
+    margin-bottom: 10px;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+}
+
+.dharma-talk .embed-youtube::after {
+    padding-top: 56.25%;
+    display: block;
+    content: '';
+}
+
+.dharma-talk .embed-youtube iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.dharma-talk .avatar {
+    float: left;
+    margin: 3px 20px 0 0;
+}
+
+.dharma-talk .about {
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    padding-top: 2.5%;
+    display: flex;
+    padding-right: 30px;
+    padding-left: 30px;
+    font-size: 85%;
+    margin-right: 54px;
+    max-width: 800px;
+}
+
+.dharma-talk .about h3 { 
+    clear: none;
+    font-size: 18px;
+    margin-top: 0;
+}
+
+.circle {
+    -moz-border-radius: 100px;
+    -webkit-border-radius: 100px;
+    border-radius: 100px;
+    border-width: 1px;
+    border-color: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.dharma-talk .site-content .format-video .post-format.video a::before {
+    content: "\f104";
+}
+
+.dharma-talk .site-content .format-audio .post-format.audio a::before {
+    content: "\f109";
+}
+
+.list-view .dharma-talk .site-content .hentry {
+    padding-top: 24px;
+}
+
+.nav-links {
+    display: flex;
+}
+
+.nav-links a {
+    display: flex;
+    flex-flow: column nowrap;
+}
+
+.nav-links a[rel~="next"] {
+    align-items: end;
+}
+
+.content-area.dharma-talk {
+    padding-top: 25px;
+}
+
+.dharma-talk .hentry .mejs-container .mejs-controls .mejs-time, .widget .mejs-container .mejs-controls .mejs-time {
+    padding: 16px 6px 0;
+}
+
+#site-header img {
+    object-fit: cover;
+    width: 100%;
+    height: 240px;
+}
+
+#content-sidebar {
+    max-width: 380px;
+}
+
+#content-sidebar {
+    max-width: 380px;
+}
+
+.site-content {
+    margin-right: 380px;
+}
+
+@media screen and (min-width: 1100px) {
+    .dharma-talk .embed-youtube {
+        width: 80%;
+    }
+}
+
+@media screen and (min-width: 1100px) and (-webkit-min-device-pixel-ratio: 2), (min-width: 1100px) and (min-resolution: 192dpi) {
+    .dharma-talk .embed-youtube {
+        width: 95%;
+    }
+}
+
+.search-box .search-field {
+    width: 100%;
+}
+
+/* toggle full-width */
+.site, header.site-header {
+    max-width: none;
+}
