@@ -96,12 +96,14 @@ Use it to make something cool, have fun, and share what you've learned with othe
     border-color: 1px solid rgba(0, 0, 0, 0.1);
 }
 
-.dharma-talk .site-content .format-video .post-format.video a::before {
-    content: "\f104";
+.dharma-talk .site-content .format-video .post-format.video i::before {
+    content: "\f03d";
+    padding-right: 5px;
 }
 
-.dharma-talk .site-content .format-audio .post-format.audio a::before {
-    content: "\f109";
+.dharma-talk .site-content .format-audio .post-format.audio i::before {
+    content: "\f028";
+    padding-right: 5px;
 }
 
 .list-view .dharma-talk .site-content .hentry {
@@ -141,10 +143,6 @@ Use it to make something cool, have fun, and share what you've learned with othe
 
 #content-sidebar {
     max-width: 380px;
-}
-
-.site-content {
-    margin-right: 380px;
 }
 
 @media screen and (min-width: 1100px) {

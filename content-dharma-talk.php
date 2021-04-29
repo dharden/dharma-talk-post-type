@@ -71,12 +71,12 @@ $talk_description = $the_content ? $the_content : $default_description;
 			?>
 			<?php if ( $youtube_link ) {?>
 			<span class="post-format video">
-				<a class="entry-format" href="<?php echo esc_url( get_post_format_link( 'video' ) ); ?>"><?php echo get_post_format_string( 'video' ); ?></a>
+				<i class="fa"></i><?php echo get_post_format_string( 'video' ); ?>
 			</span>
 			<?php }; ?>
 			<?php if ( $episode_content ) {?>
 			<span class="post-format audio">
-				<a class="entry-format" href="<?php echo esc_url( get_post_format_link( 'audio' ) ); ?>"><?php echo get_post_format_string( 'audio' ); ?></a>
+				<i class="fa"></i><?php echo get_post_format_string( 'audio' ); ?>
 			</span>
 			<?php }; ?>
 			<?php edit_post_link( __( 'Edit', 'twentyfourteen' ), '<span class="edit-link">', '</span>' ); ?>
