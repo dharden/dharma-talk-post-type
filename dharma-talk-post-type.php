@@ -70,8 +70,6 @@ function dt_save_meta_box( $post_id ) {
     $fields = [
         'dt_description',
         'dt_youtube_link',
-        'dt_series',
-        'dt_episode',
     ];
     foreach ( $fields as $field ) {
         if ( array_key_exists( $field, $_POST ) ) {
