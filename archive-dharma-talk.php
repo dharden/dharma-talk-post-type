@@ -26,20 +26,7 @@ get_header(); ?>
 
 			<header class="page-header">
 				<h1 class="page-title">
-					<?php
-					if ( is_day() ) {
-						/* translators: %s: Date. */
-						printf( __( 'Daily Archives: %s', 'twentyfourteen' ), get_the_date() );
-					} elseif ( is_month() ) {
-						/* translators: %s: Date. */
-						printf( __( 'Monthly Archives: %s', 'twentyfourteen' ), get_the_date( _x( 'F Y', 'monthly archives date format', 'twentyfourteen' ) ) );
-					} elseif ( is_year() ) {
-						/* translators: %s: Date. */
-						printf( __( 'Yearly Archives: %s', 'twentyfourteen' ), get_the_date( _x( 'Y', 'yearly archives date format', 'twentyfourteen' ) ) );
-					} else {
-						_e( 'Archives', 'twentyfourteen' );
-					}
-					?>
+					Archives
 				</h1>
 			</header><!-- .page-header -->
 			<div class="dharma-talk">

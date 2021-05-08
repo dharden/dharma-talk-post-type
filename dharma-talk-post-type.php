@@ -1,13 +1,16 @@
 <?php
 /**
-Plugin Name: Dharma Talk Post Type
-Description: Add post types for dharma talks
-Author: Dan Harden
+ * Plugin Name: Dharma Talk Post Type
+ * Description: Add post types for dharma talks
+ * Author: Dan Harden
+ *
+ * @package BZC
  */
 
-// Hook <strong>custom_post_dharma_talk()</strong> to the init action hook
+// Hook <strong>custom_post_dharma_talk()</strong> to the init action hook.
 add_action( 'init', 'bzc_custom_post_dharma_talk' );
-// The custom function to register a dharma talk post type
+/** The custom function to register a dharma talk post type.
+ */
 function bzc_custom_post_dharma_talk() {
 	$labels = array(
 		'name'               => __( 'Dharma Talks' ),
@@ -62,7 +65,8 @@ function dt_save_meta_box( $post_id ) {
 	if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
 		return;
 	}
-	if ( $parent_id = wp_is_post_revision( $post_id ) ) {
+	$parent_id = wp_is_post_revision( $post_id );
+	if ( $parent_id ) {
 		$post_id = $parent_id;
 	}
 	$fields = array(
@@ -71,7 +75,7 @@ function dt_save_meta_box( $post_id ) {
 	);
 	foreach ( $fields as $field ) {
 		if ( array_key_exists( $field, $_POST ) ) {
-			update_post_meta( $post_id, $field, sanitize_text_field( $_POST[ $field ] ) );
+			update_post_meta( $post_id, $field, sanitize_text_field( wp_unslash( $_POST[ $field ] ) ) );
 		}
 	}
 }
@@ -90,7 +94,7 @@ function dt_save_description( $post_id ) {
 	if ( $parent_id ) {
 		$post_id = $parent_id;
 	}
-	if ( array_key_exists( 'content', $_POST ) && trim( $__POST['content'] ) !== '' ) {
+	if ( array_key_exists( 'content', $_POST ) && trim( wp_unslash( $_POST['content'] ) ) !== '' ) {
 		return;
 	}
 	$the_post            = get_post( $post_id );
@@ -102,13 +106,18 @@ function dt_save_description( $post_id ) {
 		'ID'           => $post_id,
 		'post_content' => $default_description,
 	);
-	// unhook this function so it doesn't loop infinitely
+	// unhook this function so it doesn't loop infinitely.
 	remove_action( 'save_post_dharma-talk', 'dt_save_description' );
 	wp_update_post( $data );
 	add_action( 'save_post_dharma-talk', 'dt_save_description' );
 };
 add_action( 'save_post_dharma-talk', 'dt_save_description' );
 
+/**
+ * Add dharma-talk to posts
+ *
+ * @param qv $qv Current query value.
+ */
 function dt_add_rss( $qv ) {
 	if ( isset( $qv['feed'] ) && ! isset( $qv['post_type'] ) ) {
 		$qv['post_type'] = array( 'post', 'dharma-talk' );
@@ -117,6 +126,11 @@ function dt_add_rss( $qv ) {
 }
 add_filter( 'request', 'dt_add_rss' );
 
+/**
+ * Add dharma-talk to posts
+ *
+ * @param WP_Query $query Current query object.
+ */
 function dt_add_to_blog( $query ) {
 	if ( ( $query->is_author() || $query->is_home() ) && $query->is_main_query() ) {
 		$query->set( 'post_type', array( 'post', 'dharma-talk' ) );

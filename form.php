@@ -1,3 +1,14 @@
+<?php
+/**
+ * The template for displaying Dharma Talk post meta boxes
+ *
+ * @package BZC
+ * @subpackage Twenty_Fourteen
+ * @since Twenty Fourteen 1.0
+ */
+
+?>
+
 <div class="dt_box">
 	<style scoped>
 		.dt_box{
