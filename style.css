@@ -19,6 +19,7 @@ Use it to make something cool, have fun, and share what you've learned with othe
 /* Import the CSS file-------------------------*/
 
 /* Loaded via functions.php instead */
+
 /*@import  '../twentyfourteen/style.css';*/
 
 /**  You don't need to write any code to change colors, just goto customizer and customize your own color **/
@@ -38,11 +39,11 @@ Use it to make something cool, have fun, and share what you've learned with othe
 }
 
 .site-content .entry-header, .site-content .entry-meta {
-	max-width: none;
+    max-width: none;
 }
 
 .dharma-talk .site-content .entry-content {
-	padding-top: 0;
+    padding-top: 0;
 }
 
 .dharma-talk .embed-youtube {
@@ -84,7 +85,7 @@ Use it to make something cool, have fun, and share what you've learned with othe
     align-items: center;
 }
 
-.dharma-talk .about h3 { 
+.dharma-talk .about h3 {
     clear: none;
     font-size: 18px;
 }
@@ -93,10 +94,11 @@ Use it to make something cool, have fun, and share what you've learned with othe
     .dharma-talk .about {
         flex-flow: row nowrap;
     }
-    .dharma-talk .about h3 { 
+    .dharma-talk .about h3 {
         margin-top: 0;
     }
 }
+
 .circle {
     -moz-border-radius: 100px;
     -webkit-border-radius: 100px;
@@ -171,6 +173,7 @@ Use it to make something cool, have fun, and share what you've learned with othe
 }
 
 /* toggle full-width */
+
 .site, header.site-header {
     max-width: none;
 }
