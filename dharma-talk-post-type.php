@@ -114,7 +114,7 @@ function dt_save_description( $post_id ) {
 add_action( 'save_post_dharma-talk', 'dt_save_description' );
 
 /**
- * Add dharma-talk to posts
+ * Add dharma-talk to rss
  *
  * @param qv $qv Current query value.
  */
@@ -137,3 +137,14 @@ function dt_add_to_blog( $query ) {
 	}
 }
 add_action( 'pre_get_posts', 'dt_add_to_blog' );
+
+/**
+ * Add dharma-talk stylesheet
+ */
+function dt_enqueue_style() {
+	$plugin_url = plugin_dir_url( __FILE__ );
+	$plugin_dir = plugin_dir_path( __FILE__ );
+	$file_name  = 'dharma-talk.css';
+	wp_enqueue_style( 'dharma-talk-plugin-style', $plugin_url . '/' . $file_name, array(), filemtime( $plugin_dir . '/' . $file_name ), false);
+}
+add_action( 'wp_enqueue_scripts', 'dt_enqueue_style', PHP_INT_MAX );

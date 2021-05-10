@@ -1,29 +1,3 @@
-/*
-Theme Name: Anjirai
-Theme URI: http://iniyan.in/themes/anjirai
-Author: iniyan
-Author URI: http://iniyan.in
-Description: Anjirai (Tamil) means a beautiful Wing. Anjirai is a child theme of Twenty Fourteen. With Anjirai theme you can customize every element's color. 
-Version: 0.0.1
-Template: twentyfourteen
-License: GNU General Public License v2 or later
-License URI: http://www.gnu.org/licenses/gpl-2.0.html
-Tags: black, green, white, light, dark, two-columns, three-columns, left-sidebar, right-sidebar, fixed-layout, responsive-layout, custom-background, custom-header, custom-menu, editor-style, featured-images, flexible-header, full-width-template, microformats, post-formats, rtl-language-support, sticky-post, theme-options, translation-ready, accessibility-ready
-Contributors: vinothg, logeshmba
-
-
-This theme, like WordPress, is licensed under the GPL.
-Use it to make something cool, have fun, and share what you've learned with others.
-*/
-
-/* Import the CSS file-------------------------*/
-
-/* Loaded via functions.php instead */
-
-/*@import  '../twentyfourteen/style.css';*/
-
-/**  You don't need to write any code to change colors, just goto customizer and customize your own color **/
-
 .dharma-talk .site-content .entry-content h2 {
     font-size: 20px;
     margin-top: 12px;

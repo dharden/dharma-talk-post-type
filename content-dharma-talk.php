@@ -101,7 +101,7 @@ $the_content = get_the_content(
 						'href'  => array(),
 						'title' => array(),
 					),
-					'p'     => array(),
+					'p'      => array(),
 					'br'     => array(),
 					'em'     => array(),
 					'strong' => array(),
