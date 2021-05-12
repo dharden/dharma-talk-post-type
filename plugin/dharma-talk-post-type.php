@@ -145,23 +145,21 @@ function dt_enqueue_style() {
 	$plugin_url = plugin_dir_url( __FILE__ );
 	$plugin_dir = plugin_dir_path( __FILE__ );
 	$file_name  = 'dharma-talk.css';
-	wp_enqueue_style( 'dharma-talk-plugin-style', $plugin_url . '/' . $file_name, array(), filemtime( $plugin_dir . '/' . $file_name ), false);
+	wp_enqueue_style( 'dharma-talk-plugin-style', $plugin_url . '/' . $file_name, array(), filemtime( $plugin_dir . '/' . $file_name ), false );
 }
 add_action( 'wp_enqueue_scripts', 'dt_enqueue_style', PHP_INT_MAX );
 
 
 /**
- * Add dharma-talk stylesheet
+ * Add og tags
  */
-/*
 function dt_add_meta_tags() {
 	echo '<meta name="twitter:card" content="summary">';
 	echo '<meta name="twitter:player" content="https://youtu.be/qF2rn0r8GS8">';
 	echo '<meta name="og:video" content="https://youtu.be/qF2rn0r8GS8">';
 	echo '<meta name="og:type" content="website">';
 }
-add_action( 'wp_head', 'dt_add_meta_tags' );
-*/
+// add_action( 'wp_head', 'dt_add_meta_tags' );
 
 /**
  * Add default preview image to jetpack

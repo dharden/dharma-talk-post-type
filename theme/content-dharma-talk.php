@@ -11,13 +11,13 @@
 
 <?php
 // set up some custom fields and other useful strings.
-$author          = get_the_author();
-$author_id       = get_the_author_meta( 'ID' );
-$date            = esc_attr( get_the_date( 'c' ) );
-$pretty_date     = esc_html( get_the_date() );
-$youtube_link    = esc_attr( get_post_meta( get_the_ID(), 'dt_youtube_link', true ) );
+$author         = get_the_author();
+$author_id      = get_the_author_meta( 'ID' );
+$date           = esc_attr( get_the_date( 'c' ) );
+$pretty_date    = esc_html( get_the_date() );
+$youtube_link   = esc_attr( get_post_meta( get_the_ID(), 'dt_youtube_link', true ) );
 $podcast_player = get_the_powerpress_content();
-$format_class    = array();
+$format_class   = array();
 if ( $youtube_link ) {
 	array_push( $format_class, 'format-video' );
 };
@@ -116,7 +116,7 @@ $the_content = get_the_content(
 			<p>Listen to an audio-only version of this talk here: </p>
 			<?php $podcast_player; ?>
 			<?php
-			if ( $podcast_player) {
+			if ( $podcast_player ) {
 				echo $podcast_player;
 			}
 			?>
