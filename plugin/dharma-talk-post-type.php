@@ -148,3 +148,45 @@ function dt_enqueue_style() {
 	wp_enqueue_style( 'dharma-talk-plugin-style', $plugin_url . '/' . $file_name, array(), filemtime( $plugin_dir . '/' . $file_name ), false);
 }
 add_action( 'wp_enqueue_scripts', 'dt_enqueue_style', PHP_INT_MAX );
+
+
+/**
+ * Add dharma-talk stylesheet
+ */
+/*
+function dt_add_meta_tags() {
+	echo '<meta name="twitter:card" content="summary">';
+	echo '<meta name="twitter:player" content="https://youtu.be/qF2rn0r8GS8">';
+	echo '<meta name="og:video" content="https://youtu.be/qF2rn0r8GS8">';
+	echo '<meta name="og:type" content="website">';
+}
+add_action( 'wp_head', 'dt_add_meta_tags' );
+*/
+
+/**
+ * Add default preview image to jetpack
+ *
+ * @param Media $media the media attached to a post.
+ * @param int   $post_id Post ID.
+ * @param args  $args additional arguments.
+ */
+function dt_jetpack_custom_image( $media, $post_id, $args ) {
+	if ( $media ) {
+		return $media;
+	} else {
+		$permalink  = get_permalink( $post_id );
+		$the_post   = get_post( $post_id );
+		$author_id  = $the_post->post_author;
+		$avatar_url = get_wp_user_avatar_src( $author_id, 128 );
+		$url        = apply_filters( 'jetpack_photon_url', $avatar_url );
+		return array(
+			array(
+				'type' => 'image',
+				'from' => 'custom_fallback',
+				'src'  => esc_url( $url ),
+				'href' => $permalink,
+			),
+		);
+	}
+}
+// add_filter( 'jetpack_images_get_images', 'dt_jetpack_custom_image', 10, 3 );

@@ -81,12 +81,12 @@
     border-color: 1px solid rgba(0, 0, 0, 0.1);
 }
 
-.dharma-talk .site-content .format-video .post-format.video i::before {
+.dharma-talk .format-video .post-format.video i::before {
     content: "\f03d";
     padding-right: 5px;
 }
 
-.dharma-talk .site-content .format-audio .post-format.audio i::before {
+.dharma-talk .format-audio .post-format.audio i::before {
     content: "\f028";
     padding-right: 5px;
 }
