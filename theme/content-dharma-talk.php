@@ -62,6 +62,7 @@ $the_content = get_the_content(
 					?>
 					<h2 class="entry-author">By <a class="url" href="<?php echo $author_url; ?>" rel="author"><?php echo $author; ?></a></h2>
 					<a href="<?php the_permalink(); ?>" rel="bookmark"><time class="entry-date" datetime="<?php echo $date; ?>"><?php echo $pretty_date ?></time></a>
+					<?php echo edit_post_link( __( 'Edit', 'twentyfourteen' ), '<span class="edit-link"> — ', '</span>' ); ?>
 				<?php } else { ?>
 				<div class="entry-meta">
 					<?php
