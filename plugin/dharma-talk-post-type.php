@@ -22,15 +22,15 @@ function bzc_custom_post_dharma_talk() {
 		'all_items'          => __( 'All Dharma Talks' ),
 		'view_item'          => __( 'View Dharma Talk' ),
 		'search_items'       => __( 'Search Dharma Talks' ),
-		'featured_image'     => 'Poster',
-		'set_featured_image' => 'Add Poster',
+		'featured_image'     => 'Featured Image',
+		'set_featured_image' => 'Add Featured Image',
 	);
 	$args   = array(
 		'labels'            => $labels,
 		'description'       => 'Holds our dharma talk post specific data',
 		'public'            => true,
 		'menu_position'     => 5,
-		'supports'          => array( 'title', 'editor', 'author', 'custom-fields', 'revisions' ),
+		'supports'          => array( 'title', 'editor', 'author', 'custom-fields', 'revisions', 'thumbnail' ),
 		'has_archive'       => true,
 		'show_in_admin_bar' => true,
 		'show_in_nav_menus' => true,
@@ -70,7 +70,6 @@ function dt_save_meta_box( $post_id ) {
 		$post_id = $parent_id;
 	}
 	$fields = array(
-		'dt_description',
 		'dt_youtube_link',
 	);
 	foreach ( $fields as $field ) {
@@ -149,18 +148,6 @@ function dt_enqueue_style() {
 }
 add_action( 'wp_enqueue_scripts', 'dt_enqueue_style', PHP_INT_MAX );
 
-
-/**
- * Add og tags
- */
-function dt_add_meta_tags() {
-	echo '<meta name="twitter:card" content="summary">';
-	echo '<meta name="twitter:player" content="https://youtu.be/qF2rn0r8GS8">';
-	echo '<meta name="og:video" content="https://youtu.be/qF2rn0r8GS8">';
-	echo '<meta name="og:type" content="website">';
-}
-// add_action( 'wp_head', 'dt_add_meta_tags' );
-
 /**
  * Add default preview image to jetpack
  *
@@ -175,8 +162,11 @@ function dt_jetpack_custom_image( $media, $post_id, $args ) {
 		$permalink  = get_permalink( $post_id );
 		$the_post   = get_post( $post_id );
 		$author_id  = $the_post->post_author;
+		$thumbnail_url = dt_get_youtube_thumbnail ( $post_id );
 		$avatar_url = get_wp_user_avatar_src( $author_id, 128 );
-		$url        = apply_filters( 'jetpack_photon_url', $avatar_url );
+		$site_logo = wp_get_attachment_url( get_theme_mod( 'custom_logo' ) );
+		$custom_image_url = $thumbnail_url ? $thumbnail_url : $site_logo;
+		$url        = apply_filters( 'jetpack_photon_url', $custom_image_url );
 		return array(
 			array(
 				'type' => 'image',
@@ -187,4 +177,31 @@ function dt_jetpack_custom_image( $media, $post_id, $args ) {
 		);
 	}
 }
-// add_filter( 'jetpack_images_get_images', 'dt_jetpack_custom_image', 10, 3 );
+add_filter( 'jetpack_images_get_images', 'dt_jetpack_custom_image', 10, 3 );
+
+function dt_get_youtube_link ( $post_id ) {
+	if ( !$post_id ) return;
+	return get_post_meta( $post_id, 'dt_youtube_link', true );
+}
+
+function dt_get_youtube_thumbnail ( $post_id ) {
+	$youtube_link = dt_get_youtube_link( $post_id );
+	if ( !$youtube_link ) return;
+	parse_str( parse_url( $youtube_link, PHP_URL_QUERY ), $querystring );
+	return 'https://img.youtube.com/vi/' . $querystring['v'] . '/maxresdefault.jpg';
+}
+
+/**
+ * Add og tags
+ */
+function dt_add_meta_tags() {
+	$post_id      = get_queried_object_id();
+	$youtube_link = dt_get_youtube_link( $post_id );
+	if ( $youtube_link ) {
+		parse_str( parse_url( $youtube_link, PHP_URL_QUERY ), $querystring );
+		echo '<meta name="twitter:card" content="summary">';
+		echo '<meta name="twitter:player" content="' . $youtube_link . '">';
+		echo '<meta name="og:video" content="' . $youtube_link . '">';
+	}
+}
+add_action( 'wp_head', 'dt_add_meta_tags' );

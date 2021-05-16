@@ -57,7 +57,12 @@ $the_content = get_the_content(
 						the_title( '<h1 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h1>' );
 					endif;
 					?>
-
+				<?php if ( strpos( get_the_title(), ':' ) === false && is_single() ) {
+					$author_url = esc_url( get_author_posts_url( $author_id ) );
+					?>
+					<h2 class="entry-author">By <a class="url" href="<?php echo $author_url; ?>" rel="author"><?php echo $author; ?></a></h2>
+					<a href="<?php the_permalink(); ?>" rel="bookmark"><time class="entry-date" datetime="<?php echo $date; ?>"><?php echo $pretty_date ?></time></a>
+				<?php } else { ?>
 				<div class="entry-meta">
 					<?php
 					if ( is_sticky() && is_home() && ! is_paged() ) {
@@ -88,6 +93,7 @@ $the_content = get_the_content(
 			<?php }; ?>
 			<?php edit_post_link( __( 'Edit', 'twentyfourteen' ), '<span class="edit-link">', '</span>' ); ?>
 		</div><!-- .entry-meta -->
+			<?php }; ?>
 	</header><!-- .entry-header -->
 	<div class="entry-content">
 		<?php if ( $youtube_link && ! is_archive() ) { ?>

@@ -151,3 +151,22 @@
 .site, header.site-header {
     max-width: none;
 }
+
+.archive .dharma-talk h1 a {
+    text-decoration: underline;
+}
+
+.entry-author {
+    font-weight: 300;
+    margin-top: 0;
+}
+
+.entry-author a, .entry-author + a {
+    color: #3d3c00;
+}
+
+/*
+.site-content .entry-meta .byline {
+    margin-right: 0;
+}
+*/
