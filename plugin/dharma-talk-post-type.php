@@ -163,7 +163,7 @@ function dt_jetpack_custom_image( $media, $post_id, $args ) {
 		$the_post   = get_post( $post_id );
 		$author_id  = $the_post->post_author;
 		$thumbnail_url = dt_get_youtube_thumbnail ( $post_id );
-		$avatar_url = get_wp_user_avatar_src( $author_id, 128 );
+		if (function_exists('get_wpupa_url')) $avatar_url = get_wpupa_url($author_id, ['size' => 128]);
 		$site_logo = wp_get_attachment_url( get_theme_mod( 'custom_logo' ) );
 		$custom_image_url = $thumbnail_url ? $thumbnail_url : $site_logo;
 		$url        = apply_filters( 'jetpack_photon_url', $custom_image_url );

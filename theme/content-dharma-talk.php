@@ -25,6 +25,8 @@ if ( $podcast_player ) {
 	array_push( $format_class, 'format-audio' );
 };
 $bio         = nl2br( get_the_author_meta( 'description' ) );
+$avatar      = esc_attr( get_wpupa_url( $author_id, array( 'size' => 128 ) ) );
+if ( function_exists( 'get_wpupa_url' ) ) $avatar = get_wpupa_url( $author_id, [ 'size' => 128 ] );
 $the_content = get_the_content(
 	sprintf(
 					/* translators: %s: Post title. */
@@ -133,9 +135,9 @@ $the_content = get_the_content(
 	</div><!-- .entry-content -->
 	<?php if ( $bio && ! is_archive() ) { ?>
 	<div class="about">
-		<?php if ( has_wp_user_avatar( $author_id ) ) { ?>
-		<img class="avatar circle" src="<?php echo esc_attr( get_wp_user_avatar_src( $author_id, 128 ) ); ?>" width="128" height="128" alt="<?php echo esc_attr( $author ); ?>" />
-		<?php } ?>
+		<?php if ( $avatar && basename( $avatar ) !== 'wp-user-128.png' ) { ?>
+		<img class="avatar circle" src="<?php echo $avatar ?>" width="128" height="128" alt="<?php echo esc_attr( $author ); ?>" />
+		<?php }; ?>
 		<div class="bio">
 			<h3>About <?php echo esc_html( $author ); ?></h3>
 			<p><?php echo esc_html( $bio ); ?></p>
