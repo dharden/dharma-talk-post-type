@@ -74,21 +74,28 @@
 }
 
 .circle {
-    -moz-border-radius: 100px;
-    -webkit-border-radius: 100px;
-    border-radius: 100px;
+    border-radius: 50%;
     border-width: 1px;
     border-color: 1px solid rgba(0, 0, 0, 0.1);
+    object-fit: cover;
 }
 
-.dharma-talk .format-video .post-format.video i::before {
-    content: "\f03d";
-    padding-right: 5px;
+.dharma-talk .format-video .post-format.video::before {
+    content: "\f517";
+    -webkit-font-smoothing: antialiased;
+    display: inline-block;
+    font: normal 16px/1 Genericons;
+    text-decoration: inherit;
+    vertical-align: text-bottom;
 }
 
-.dharma-talk .format-audio .post-format.audio i::before {
-    content: "\f028";
-    padding-right: 5px;
+.dharma-talk .format-audio .post-format.audio::before {
+    content: "\f109";
+    -webkit-font-smoothing: antialiased;
+    display: inline-block;
+    font: normal 16px/1 Genericons;
+    text-decoration: inherit;
+    vertical-align: text-bottom;
 }
 
 .list-view .dharma-talk .site-content .hentry {

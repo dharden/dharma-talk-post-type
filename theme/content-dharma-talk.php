@@ -25,8 +25,7 @@ if ( $podcast_player ) {
 	array_push( $format_class, 'format-audio' );
 };
 $bio         = nl2br( get_the_author_meta( 'description' ) );
-$avatar      = esc_attr( get_wpupa_url( $author_id, array( 'size' => 128 ) ) );
-if ( function_exists( 'get_wpupa_url' ) ) $avatar = get_wpupa_url( $author_id, [ 'size' => 128 ] );
+if ( function_exists( 'get_wpupa_url' ) ) $avatar = get_wpupa_url( $author_id, [ 'size' => 'thumbnail' ] );
 $the_content = get_the_content(
 	sprintf(
 					/* translators: %s: Post title. */
@@ -86,12 +85,12 @@ $the_content = get_the_content(
 				?>
 			<?php if ( $youtube_link ) { ?>
 			<span class="post-format video">
-				<i class="fa"></i><?php echo esc_html( get_post_format_string( 'video' ) ); ?>
+				<?php echo esc_html( get_post_format_string( 'video' ) ); ?>
 			</span>
 			<?php }; ?>
 			<?php if ( $podcast_player ) { ?>
 			<span class="post-format audio">
-				<i class="fa"></i><?php echo esc_html( get_post_format_string( 'audio' ) ); ?>
+				<?php echo esc_html( get_post_format_string( 'audio' ) ); ?>
 			</span>
 			<?php }; ?>
 			<?php edit_post_link( __( 'Edit', 'twentyfourteen' ), '<span class="edit-link">', '</span>' ); ?>
