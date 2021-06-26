@@ -121,6 +121,7 @@ add_action( 'save_post_dharma-talk', 'dt_save_description' );
 function dt_add_rss( $qv ) {
 	if ( isset( $qv['feed'] ) && ! isset( $qv['post_type'] ) ) {
 		$qv['post_type'] = array( 'post', 'dharma-talk' );
+		define('POWERPRESS_POSTTYPE_MIXING', true);
 	}
 	return $qv;
 }
