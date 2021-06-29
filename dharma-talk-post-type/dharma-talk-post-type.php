@@ -207,3 +207,16 @@ function dt_add_meta_tags() {
 	}
 }
 add_action( 'wp_head', 'dt_add_meta_tags' );
+
+/**
+ * Limit default meta boxes to only necessary options
+ */
+function hide_meta_box($hidden, $screen) {
+    //make sure we are dealing with the correct screen
+    if ( ('post' == $screen->base) && ('dharma-talk' == $screen->id) ){
+	// hide these, therefore show the rest by default
+      $hidden = array('revisionsdiv', 'postcustom', 'slugdiv', 'swpm_sectionid', 'expirationdatediv', 'sharing_meta', 'postimagediv' );
+    }
+    return $hidden;
+  }
+add_filter('default_hidden_meta_boxes','hide_meta_box',10,2);

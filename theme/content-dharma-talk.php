@@ -83,18 +83,18 @@ $the_content = get_the_content(
 					esc_html( $pretty_date )
 				);
 				?>
-			<?php if ( $youtube_link ) { ?>
-			<span class="post-format video">
-				<?php echo esc_html( get_post_format_string( 'video' ) ); ?>
-			</span>
-			<?php }; ?>
-			<?php if ( $podcast_player ) { ?>
-			<span class="post-format audio">
-				<?php echo esc_html( get_post_format_string( 'audio' ) ); ?>
-			</span>
-			<?php }; ?>
-			<?php edit_post_link( __( 'Edit', 'twentyfourteen' ), '<span class="edit-link">', '</span>' ); ?>
-		</div><!-- .entry-meta -->
+				<?php if ( $youtube_link ) { ?>
+				<span class="post-format video">
+					<?php echo esc_html( get_post_format_string( 'video' ) ); ?>
+				</span>
+				<?php }; ?>
+				<?php if ( $podcast_player ) { ?>
+				<span class="post-format audio">
+					<?php echo esc_html( get_post_format_string( 'audio' ) ); ?>
+				</span>
+				<?php }; ?>
+				<?php edit_post_link( __( 'Edit', 'twentyfourteen' ), '<span class="edit-link">', '</span>' ); ?>
+			</div><!-- .entry-meta -->
 			<?php }; ?>
 	</header><!-- .entry-header -->
 	<div class="entry-content">
@@ -131,6 +131,15 @@ $the_content = get_the_content(
 			<p>Subscribe to The Berkeley Zen Center Podcast: <a href="https://berkeleyzencenter.org/feed/podcast/" title="Subscribe via RSS" rel="nofollow">RSS</a></p>
 		</div>
 		<?php } ?>
+		<?php
+		if ( ! is_single() ) {
+			echo sprintf(
+				'<a class="read-more" href="%1$s">%2$s</a>',
+				get_permalink( get_the_ID() ),
+				__( 'Read More', 'textdomain' )
+			);
+		};
+		?>
 	</div><!-- .entry-content -->
 	<?php if ( $bio && ! is_archive() ) { ?>
 	<div class="about">
@@ -143,6 +152,7 @@ $the_content = get_the_content(
 			<a href="<?php echo esc_url( get_author_posts_url( $author_id ) ); ?>">More from <?php echo esc_html( $author ); ?></a>
 		</div>
 	</div><!-- .entry-meta -->
-	<?php } ?>
-
+		<?php
+	};
+	?>
 </article><!-- #post-<?php the_ID(); ?> -->

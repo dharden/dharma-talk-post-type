@@ -41,7 +41,6 @@ get_header(); ?>
 					 * (where ___ is the post format) and that will be used instead.
 					 */
 					get_template_part( 'content', 'dharma-talk' );
-
 					endwhile;
 					// Previous/next page navigation.
 					twentyfourteen_paging_nav();
