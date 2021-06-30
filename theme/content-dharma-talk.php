@@ -132,7 +132,7 @@ $the_content = get_the_content(
 		</div>
 		<?php } ?>
 		<?php
-		if ( ! is_single() ) {
+		if ( is_archive() ) {
 			echo sprintf(
 				'<a class="read-more" href="%1$s">%2$s</a>',
 				get_permalink( get_the_ID() ),
