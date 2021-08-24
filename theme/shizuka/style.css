@@ -1,0 +1,101 @@
+/*
+Theme Name:     Shizuka
+Theme URI:      
+Description:    Twentyfourteen child theme.
+Author:         Dan Harden
+Author URI:     
+Template:       twentyfourteen
+Version:        0.1.0
+ */
+
+.header-main { background-color:  #4c9300; }
+#secondary, .site:before { background-color:  #ffffff; }
+.search-toggle, .search-toggle:hover,.search-toggle.active,.search-box { background-color:  #757575; }
+h1,h2,h3,h4,h5,h6 {color: #3d3c00; }
+.entry-title a { color: #875416; }
+.entry-title a:hover { color: #875416; }
+.primary-navigation li:hover > a,.primary-navigation li.focus > a,.primary-navigation li:active > a,.primary-navigation ul ul a:hover,
+.primary-navigation ul ul li.focus > a {
+	background-color: #fcdf4e;
+color: #000000;	}
+.primary-navigation li a, .primary-navigation ul ul a,.primary-navigation ul ul li a {
+	background-color: #c4d31b;
+color: #000000;	}
+p {color: #4f4f4f; }
+.site-title a {
+	color: #fcdf4e;
+}
+
+
+.circle {
+    border-radius: 50%;
+    border-width: 1px;
+    border-color: 1px solid rgba(0, 0, 0, 0.1);
+    object-fit: cover;
+}
+
+.hentry, .post-navigation, .page-content, .page-header, .archive-header {
+    max-width: none;
+    margin: 0 auto 24px;
+}
+
+.site-content .entry-header, .site-content .entry-meta {
+    max-width: none;
+}
+
+.nav-links {
+    display: flex;
+}
+
+.nav-links a {
+    display: flex;
+    flex-flow: column nowrap;
+}
+
+.nav-links a[rel~="next"] {
+    align-items: end;
+}
+
+#site-header img {
+    object-fit: cover;
+    width: 100%;
+    height: 240px;
+}
+
+#content-sidebar {
+    max-width: 380px;
+}
+
+#content-sidebar {
+    max-width: 380px;
+}
+
+.site, header.site-header {
+    max-width: none;
+}
+
+.entry-author {
+    font-weight: 300;
+    margin-top: 0;
+}
+
+.entry-author a, .entry-author + a {
+    color: #3d3c00;
+}
+
+/*
+.site-content .entry-meta .byline {
+    margin-right: 0;
+}
+*/
+
+.search-box .search-field {
+    width: 100%;
+}
+
+.main-content .content-area .site-content .entry-content .alignright {
+    margin-right: 0;
+}
+.main-content .content-area .site-content .entry-content .alignleft {
+    margin-left: 0;
+}

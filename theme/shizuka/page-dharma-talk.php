@@ -40,7 +40,6 @@ if ( is_front_page() && twentyfourteen_has_featured_posts() ) {
 
 		</div><!-- #content -->
 	</div><!-- #primary -->
-	<?php get_sidebar( 'content' ); ?>
 </div><!-- #main-content -->
 
 <?php

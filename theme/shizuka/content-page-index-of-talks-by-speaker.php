@@ -16,17 +16,6 @@
 	?>
 
 	<div class="entry-content">
-		<ul>
-		<?php
-			wp_list_authors(
-				array(
-					'exclude' => '3, 6, 72, 73', // author ids to exclude.
-					'orderby' => 'name',
-					'order'   => 'ASC',
-				)
-			);
-			?>
-		</ul>
 		<?php
 			the_content();
 			wp_link_pages(
@@ -40,5 +29,16 @@
 
 			edit_post_link( __( 'Edit', 'twentyfourteen' ), '<span class="edit-link">', '</span>' );
 			?>
+		<ul>
+		<?php
+			wp_list_authors(
+				array(
+					'exclude' => '3, 6, 72, 73', // author ids to exclude.
+					'orderby' => 'name',
+					'order'   => 'ASC',
+				)
+			);
+			?>
+		</ul>
 	</div><!-- .entry-content -->
 </article><!-- #post-<?php the_ID(); ?> -->

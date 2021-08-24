@@ -11,7 +11,7 @@
 
 get_header(); ?>
 
-	<section id="primary" class="content-area">
+	<section id="primary" class="content-area author">
 		<div id="content" class="site-content" role="main">
 
 			<?php if ( have_posts() ) : ?>
@@ -70,6 +70,5 @@ get_header(); ?>
 	</section><!-- #primary -->
 
 <?php
-get_sidebar( 'content' );
 get_sidebar();
 get_footer();
