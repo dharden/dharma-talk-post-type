@@ -36,6 +36,7 @@ function bzc_custom_post_dharma_talk() {
 		'show_in_nav_menus' => true,
 		'query_var'         => true,
 		'rewrite' => array('slug' => 'dharma-talk','with_front' => false),
+		'taxonomies' => array( 'dt-collection' ),
 	);
 	register_post_type( 'dharma-talk', $args );
 }
